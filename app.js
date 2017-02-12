@@ -9,7 +9,7 @@ function(){
 // Adds a pet to the page with user input on button click
 $('#add-pet').on('click', function(){
 	// Grab info from the form
-	var $name = $('pet-name').val();
+	var $name = $('#pet-name').val();
 	var $species = $('#pet-species').val();
 	var $notes = $('#pet-notes').val();
 
@@ -23,6 +23,17 @@ $('#add-pet').on('click', function(){
 
 	// Attach the new element to the page
 	$('#posted-pets').append($newPet);
+
+
+	// Make the 'x' in the corner remove the section it's contained within
+	$('.close').on('click', function() {
+		$(this).parent().remove();
+	});
+
+	// Reset form fields
+	$name.val("");
+	$species.val("Dog");
+	$notes.val("");
 });
 
 // Puppy images fade in
